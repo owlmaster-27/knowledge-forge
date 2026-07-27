@@ -2,406 +2,35 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Knowledge Forge</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <meta
     name="description"
-    content="AI、Heptabase、在宅医療、研究をつなぎ、知識を鍛え、形にするためのナレッジサイト。"
+    content="Knowledge Forgeは、知識を集め、つなぎ、使える形に鍛えるためのナレッジメディアです。"
   >
 
-  <style>
-    :root {
-      --bg: #081120;
-      --bg-soft: #0d182a;
-      --card: rgba(255, 255, 255, 0.055);
-      --card-hover: rgba(255, 255, 255, 0.09);
-      --border: rgba(255, 255, 255, 0.11);
-      --text: #f8fafc;
-      --muted: #a8b3c7;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.15);
-      --max-width: 1180px;
-    }
+  <title>Knowledge Forge</title>
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background:
-        radial-gradient(circle at 15% 10%, rgba(56, 189, 248, 0.12), transparent 28%),
-        radial-gradient(circle at 85% 20%, rgba(99, 102, 241, 0.12), transparent 30%),
-        var(--bg);
-      color: var(--text);
-      font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        "Hiragino Sans",
-        "Yu Gothic",
-        sans-serif;
-      line-height: 1.7;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(calc(100% - 40px), var(--max-width));
-      margin: 0 auto;
-    }
-
-    /* Header */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid var(--border);
-      background: rgba(8, 17, 32, 0.78);
-      backdrop-filter: blur(18px);
-    }
-
-    .nav {
-      min-height: 74px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 1.15rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-
-    .logo-mark {
-      width: 38px;
-      height: 38px;
-      display: grid;
-      place-items: center;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #38bdf8, #6366f1);
-      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.22);
-    }
-
-    nav ul {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    nav a {
-      color: var(--muted);
-      font-size: 0.92rem;
-      transition: color 0.2s ease;
-    }
-
-    nav a:hover {
-      color: var(--text);
-    }
-
-    /* Hero */
-
-    .hero {
-      min-height: 82vh;
-      display: flex;
-      align-items: center;
-      padding: 100px 0 80px;
-    }
-
-    .hero-content {
-      max-width: 900px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border: 1px solid rgba(56, 189, 248, 0.35);
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: #7dd3fc;
-      font-size: 0.88rem;
-      font-weight: 700;
-    }
-
-    h1 {
-      margin: 28px 0 22px;
-      max-width: 900px;
-      font-size: clamp(3.2rem, 8vw, 7rem);
-      line-height: 0.98;
-      letter-spacing: -0.065em;
-    }
-
-    .gradient-text {
-      background: linear-gradient(90deg, #ffffff, #7dd3fc, #a5b4fc);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .hero p {
-      max-width: 720px;
-      margin: 0;
-      color: var(--muted);
-      font-size: clamp(1.05rem, 2vw, 1.35rem);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 36px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 50px;
-      padding: 0 22px;
-      border-radius: 14px;
-      font-weight: 750;
-      transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        border-color 0.2s ease;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-    }
-
-    .button-primary {
-      background: linear-gradient(135deg, #38bdf8, #6366f1);
-      color: white;
-      box-shadow: 0 18px 45px rgba(56, 189, 248, 0.18);
-    }
-
-    .button-secondary {
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--text);
-    }
-
-    /* Sections */
-
-    section {
-      padding: 100px 0;
-    }
-
-    .section-heading {
-      max-width: 720px;
-      margin-bottom: 42px;
-    }
-
-    .section-label {
-      margin-bottom: 10px;
-      color: var(--accent);
-      font-size: 0.82rem;
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    h2 {
-      margin: 0 0 14px;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      line-height: 1.1;
-      letter-spacing: -0.04em;
-    }
-
-    .section-heading p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.08rem;
-    }
-
-    /* Cards */
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .card {
-      min-height: 260px;
-      padding: 30px;
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      background: var(--card);
-      transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        border-color 0.25s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      background: var(--card-hover);
-      border-color: rgba(56, 189, 248, 0.3);
-    }
-
-    .card-icon {
-      width: 52px;
-      height: 52px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 42px;
-      border-radius: 16px;
-      background: var(--accent-soft);
-      font-size: 1.5rem;
-    }
-
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 1.45rem;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .card-link {
-      display: inline-block;
-      margin-top: 24px;
-      color: #7dd3fc;
-      font-weight: 700;
-    }
-
-    /* Latest */
-
-    .articles {
-      display: grid;
-      gap: 14px;
-    }
-
-    .article {
-      display: grid;
-      grid-template-columns: 150px 1fr auto;
-      align-items: center;
-      gap: 22px;
-      padding: 22px;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.035);
-    }
-
-    .article-category {
-      color: var(--accent);
-      font-size: 0.85rem;
-      font-weight: 750;
-    }
-
-    .article-title {
-      font-weight: 750;
-    }
-
-    .article-status {
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-
-    /* About */
-
-    .about-box {
-      padding: 50px;
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      background:
-        linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(99, 102, 241, 0.08));
-    }
-
-    .about-box p {
-      max-width: 800px;
-      margin: 18px 0 0;
-      color: var(--muted);
-      font-size: 1.08rem;
-    }
-
-    /* Footer */
-
-    footer {
-      padding: 40px 0;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    /* Responsive */
-
-    @media (max-width: 860px) {
-      nav ul {
-        display: none;
-      }
-
-      .hero {
-        min-height: auto;
-        padding-top: 90px;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .article {
-        grid-template-columns: 1fr;
-        gap: 6px;
-      }
-
-      .about-box {
-        padding: 30px;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <header>
+  <header class="site-header">
     <div class="container nav">
 
-      <a class="logo" href="#home">
-        <span class="logo-mark">K</span>
-        <span>Knowledge Forge</span>
+      <a class="logo" href="index.html">
+        KNOWLEDGE <span>FORGE</span>
       </a>
 
-      <nav aria-label="メインナビゲーション">
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#topics">Topics</a></li>
-          <li><a href="#latest">Blog</a></li>
-          <li><a href="#about">About</a></li>
-        </ul>
+      <nav class="nav-links" aria-label="メインナビゲーション">
+        <a class="active" href="index.html">Home</a>
+        <a href="articles.html">Articles</a>
+        <a href="sources.html">Sources</a>
+        <a href="about.html">About</a>
       </nav>
 
     </div>
@@ -409,165 +38,157 @@
 
   <main>
 
-    <section class="hero" id="home">
+    <section class="hero">
       <div class="container">
-        <div class="hero-content">
 
-          <div class="eyebrow">
-            Knowledge × Technology × Practice
-          </div>
+        <p class="eyebrow">
+          COLLECT · CONNECT · CREATE
+        </p>
 
-          <h1>
-            Knowledge is
-            <span class="gradient-text">forged,</span>
-            not found.
-          </h1>
+        <h1>
+          知識を集め、<br>
+          つなぎ、鍛える。
+        </h1>
 
-          <p>
-            AI、Heptabase、在宅医療、研究。
-            日々の学びを整理し、つなぎ、実践できる知識へと鍛えていく場所です。
-          </p>
+        <p class="hero-copy">
+          Knowledge Forgeは、情報を集めるだけで終わらせず、
+          考え、整理し、実践に使える知識へと育てるための場所です。
+          Heptabase、AI、Web開発、在宅医療を中心に、
+          学びと実践の記録を発信していきます。
+        </p>
 
-          <div class="hero-actions">
-            <a class="button button-primary" href="#topics">
-              Explore Knowledge
-            </a>
+        <div class="button-row">
+          <a class="button button-primary" href="articles.html">
+            記事を読む
+          </a>
 
-            <a class="button button-secondary" href="#about">
-              About Knowledge Forge
-            </a>
-          </div>
-
+          <a class="button button-secondary" href="about.html">
+            Knowledge Forgeについて
+          </a>
         </div>
+
       </div>
     </section>
 
-    <section id="topics">
+    <section class="section">
       <div class="container">
 
         <div class="section-heading">
-          <div class="section-label">Explore</div>
-          <h2>知識を、分野を越えてつなぐ。</h2>
+          <div>
+            <p class="eyebrow">EXPLORE</p>
+            <h2>Knowledge Areas</h2>
+          </div>
+
           <p>
-            Knowledge Forgeでは、実際に使い、考え、試した経験をもとに、
-            知識を体系化していきます。
+            Knowledge Forgeで扱うテーマ。
+            情報収集から知識管理、AI活用、医療現場での実践まで、
+            分野を越えて知識をつないでいきます。
           </p>
         </div>
 
         <div class="grid">
 
-          <article class="card">
-            <div class="card-icon">🤖</div>
-            <h3>AI</h3>
-            <p>
-              ChatGPT、Claude、Gemini、OpenRouterなど、
-              AIを仕事と学習へ実装する方法をまとめます。
-            </p>
-            <span class="card-link">Coming soon →</span>
-          </article>
+          <a class="card" href="articles.html">
+            <span class="card-number">01</span>
 
-          <article class="card">
-            <div class="card-icon">🧠</div>
-            <h3>Heptabase</h3>
-            <p>
-              Heptabaseの基本操作、活用法、アップデート、
-              AI連携を日本語で分かりやすく整理します。
-            </p>
-            <span class="card-link">Coming soon →</span>
-          </article>
+            <h3>Knowledge Management</h3>
 
-          <article class="card">
-            <div class="card-icon">🏠</div>
-            <h3>Home Medicine</h3>
             <p>
-              在宅医療に関する論文、実践知、教育、
-              医療DXの取り組みを蓄積します。
+              Heptabaseや情報整理ツールを使い、
+              情報を知識へ変える方法を探究します。
             </p>
-            <span class="card-link">Coming soon →</span>
-          </article>
+          </a>
 
-          <article class="card">
-            <div class="card-icon">🔬</div>
-            <h3>Research</h3>
+          <a class="card" href="articles.html">
+            <span class="card-number">02</span>
+
+            <h3>AI & Automation</h3>
+
             <p>
-              研究計画、論文検索、統計、視機能研究など、
-              臨床から研究を形にする過程を記録します。
+              ChatGPTや各種AIツール、自動化サービスを使い、
+              仕事と学習を進化させます。
             </p>
-            <span class="card-link">Coming soon →</span>
-          </article>
+          </a>
+
+          <a class="card" href="articles.html">
+            <span class="card-number">03</span>
+
+            <h3>Home Medical Care</h3>
+
+            <p>
+              在宅医療の実践、研究、組織づくりを、
+              現場の視点から蓄積します。
+            </p>
+          </a>
 
         </div>
       </div>
     </section>
 
-    <section id="latest">
+    <section class="section">
       <div class="container">
 
         <div class="section-heading">
-          <div class="section-label">Latest</div>
-          <h2>これから公開する記事</h2>
+          <div>
+            <p class="eyebrow">LATEST</p>
+            <h2>Latest Articles</h2>
+          </div>
+
           <p>
-            Knowledge Forgeの最初のコンテンツを準備しています。
+            Knowledge Forgeでこれから公開していく記事です。
+            現在、最初の記事を制作しています。
           </p>
         </div>
 
-        <div class="articles">
+        <div class="article-list">
 
-          <div class="article">
-            <div class="article-category">HEPTABASE</div>
-            <div class="article-title">
-              Heptabaseとは何か。なぜ知識管理が変わるのか
-            </div>
-            <div class="article-status">Coming soon</div>
-          </div>
+          <a class="article-item" href="articles.html">
+            <span class="article-date">COMING SOON</span>
 
-          <div class="article">
-            <div class="article-category">AI</div>
-            <div class="article-title">
-              ChatGPTとHeptabaseをどう使い分けるか
-            </div>
-            <div class="article-status">Coming soon</div>
-          </div>
+            <h2>
+              Heptabaseを使った知識管理の始め方
+            </h2>
 
-          <div class="article">
-            <div class="article-category">HOME MEDICINE</div>
-            <div class="article-title">
-              在宅医療にAIとナレッジ管理を実装する
-            </div>
-            <div class="article-status">Coming soon</div>
-          </div>
+            <span class="article-arrow">→</span>
+          </a>
+
+          <a class="article-item" href="articles.html">
+            <span class="article-date">COMING SOON</span>
+
+            <h2>
+              AIを「回答装置」から「思考の相棒」に変える
+            </h2>
+
+            <span class="article-arrow">→</span>
+          </a>
+
+          <a class="article-item" href="articles.html">
+            <span class="article-date">COMING SOON</span>
+
+            <h2>
+              在宅医療の知識を組織に残す方法
+            </h2>
+
+            <span class="article-arrow">→</span>
+          </a>
 
         </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="container">
-
-        <div class="about-box">
-          <div class="section-label">About</div>
-          <h2>Knowledge Forgeとは</h2>
-
-          <p>
-            Knowledge Forgeは、集めた情報をそのまま保存する場所ではありません。
-            情報を吟味し、関連づけ、実際に使える知識へ変えていくための場所です。
-          </p>
-
-          <p>
-            AI、知識管理、医療、研究、経営。
-            異なる領域をつなぎながら、実践から生まれた知識を公開していきます。
-          </p>
-        </div>
-
       </div>
     </section>
 
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <div class="container footer-inner">
-      <div>© 2026 Knowledge Forge</div>
-      <div>Knowledge is forged, not found.</div>
+
+      <p>
+        © 2026 Knowledge Forge
+      </p>
+
+      <p>
+        Built with curiosity and practice.
+      </p>
+
     </div>
   </footer>
 
