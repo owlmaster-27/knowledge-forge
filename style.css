@@ -411,3 +411,42 @@ h1 {
     margin:12px 0;
 
 }
+.article-layout {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.knowledge-sidebar {
+  position: sticky;
+  top: 100px;
+  background: #1d2232;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.knowledge-sidebar h3 {
+  margin-top: 0;
+  color: #6ee7ff;
+}
+
+.knowledge-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.knowledge-sidebar li {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+@media (max-width: 900px) {
+  .article-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .knowledge-sidebar {
+    position: static;
+  }
+}
