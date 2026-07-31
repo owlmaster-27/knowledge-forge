@@ -71,7 +71,18 @@
             記事が完成したら、このページから読めるようになります。
           </p>
         </div>
+<div class="article-search">
+  <input
+    type="search"
+    id="articleSearch"
+    placeholder="記事を検索..."
+    aria-label="記事を検索"
+  >
+</div>
 
+<p id="noResults" class="no-results">
+  該当する記事が見つかりません。
+</p>
         <div class="article-list">
 
          <a
@@ -146,6 +157,28 @@
 
     </div>
   </footer>
+<script>
+  const searchInput = document.getElementById("articleSearch");
+  const articleItems = document.querySelectorAll(".article-item");
+  const noResults = document.getElementById("noResults");
 
+  searchInput.addEventListener("input", function () {
+    const keyword = searchInput.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    articleItems.forEach(function (item) {
+      const articleText = item.textContent.toLowerCase();
+      const isMatch = articleText.includes(keyword);
+
+      item.style.display = isMatch ? "" : "none";
+
+      if (isMatch) {
+        visibleCount++;
+      }
+    });
+
+    noResults.style.display = visibleCount === 0 ? "block" : "none";
+  });
+</script>
 </body>
 </html>
