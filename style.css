@@ -411,3 +411,16 @@ h1 {
     margin:12px 0;
 
 }
+.article-container h1{
+    font-size:3rem;
+    line-height:1.2;
+    margin-bottom:24px;
+}
+
+.article-container h2{
+    font-size:2rem;
+}
+
+.article-container p{
+    max-width:800px;
+}
