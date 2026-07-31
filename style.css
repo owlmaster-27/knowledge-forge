@@ -450,3 +450,6 @@ h1 {
     position: static;
   }
 }
+.article-box h2 {
+  margin-top: 0;
+}
